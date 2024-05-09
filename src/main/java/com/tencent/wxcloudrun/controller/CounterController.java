@@ -26,6 +26,12 @@ public class CounterController {
   final CounterService counterService;
   final Logger logger;
 
+  /** test */
+  @GetMapping(value="/api/getInfo")
+  public String getInfo(){
+    return("nmmmmmm");
+  }
+
   public CounterController(@Autowired CounterService counterService) {
     this.counterService = counterService;
     this.logger = LoggerFactory.getLogger(CounterController.class);
@@ -79,5 +85,5 @@ public class CounterController {
       return ApiResponse.error("参数action错误");
     }
   }
-  
+
 }
