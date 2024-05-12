@@ -1,0 +1,18 @@
+server:
+  port: 80
+
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://sh-cynosdbmysql-grp-cnch9b5k.sql.tencentcdb.com:22773/springboot_demo?characterEncoding=utf-8&useSSL=false&serverTimezone=UTC&allowPublicKeyRetrieval=true
+    username: admin
+    password: Caodaren666
+  mvc:
+    view:
+      suffix: .html
+      prefix: /
+
+mybatis:
+  mapper-locations: classpath*:mapper/*Mapper.xml
+  type-aliases-package: com.tencent.wxcloudrun.entity

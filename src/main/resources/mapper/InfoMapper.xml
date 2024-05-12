@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.tencent.wxcloudrun.dao.InfoMapper">
+    <select id="getInfo" resultType="com.tencent.wxcloudrun.entity.Info">
+        select * from info
+        where #{type} = type
+        ORDER BY `id` DESC
+        LIMIT 8 OFFSET 0
+    </select>
+    <select id="updateInfo" resultType="com.tencent.wxcloudrun.entity.Info">
+        select * from info
+        where #{lastId} &gt; id and #{type} = type
+        ORDER BY `id` DESC
+        LIMIT 8 OFFSET 0
+    </select>
+    <select id="getInfoById" resultType="com.tencent.wxcloudrun.entity.Info">
+        select * from info
+        where #{id} = id
+    </select>
+    <select id="getCollection" resultType="com.tencent.wxcloudrun.entity.Info">
+        select info.* from info,collection,user
+        where info.id = info_id and user.id = user_id and #{user_id} = user_id
+        order by info.id
+    </select>
+    <select id="ifInCollection" resultType="com.tencent.wxcloudrun.entity.Info">
+        select info.* from collection,info
+        where #{user_id} = user_id and #{info_id} = info_id and info.id = info_id
+    </select>
+    <insert id="collect">
+        INSERT INTO `collection` (`user_id`, `info_id`)
+        VALUES (#{user_id}, #{info_id})
+    </insert>
+    <delete id="unCollect">
+        DELETE FROM `collection`
+        WHERE `user_id`=#{user_id} and `info_id`=#{info_id}
+    </delete>
+    <select id="searchInfo" resultType="com.tencent.wxcloudrun.entity.Info">
+        select * from info
+        where title like #{index}
+    </select>
+    <update id="changeInfo">
+        update `info`
+        set `title` = #{title}, `time` = #{time}, `type` = #{type}, `index` = #{index}
+        where `id` = #{id}
+    </update>
+    <insert id="addInfo">
+        insert into `info` (`title`,`time`,`type`,`index`)
+        values (#{title},#{time},#{type},#{index})
+    </insert>
+    <delete id="deleteInfo">
+        delete from `info`
+        where `id` = #{id}
+    </delete>
+</mapper>
