@@ -5,13 +5,13 @@
         select * from info
         where #{type} = type
         ORDER BY `id` DESC
-        LIMIT 8 OFFSET 0
+        LIMIT 11 OFFSET 0
     </select>
     <select id="updateInfo" resultType="com.tencent.wxcloudrun.entity.Info">
         select * from info
         where #{lastId} &gt; id and #{type} = type
         ORDER BY `id` DESC
-        LIMIT 8 OFFSET 0
+        LIMIT 11 OFFSET 0
     </select>
     <select id="getInfoById" resultType="com.tencent.wxcloudrun.entity.Info">
         select * from info

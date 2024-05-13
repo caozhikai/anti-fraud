@@ -4,13 +4,13 @@
     <select id="getLawyer" resultType="com.tencent.wxcloudrun.entity.Lawyer">
         select * from lawyer
         order by id DESC
-        LIMIT 8 OFFSET 0
+        LIMIT 15 OFFSET 0
     </select>
     <select id="updateLawyer" resultType="com.tencent.wxcloudrun.entity.Lawyer">
         select * from lawyer
         where #{lastId} &gt; id
         ORDER BY id DESC
-        LIMIT 8 OFFSET 0
+        LIMIT 15 OFFSET 0
     </select>
     <select id="getLawyerById" resultType="com.tencent.wxcloudrun.entity.Lawyer">
         select * from lawyer

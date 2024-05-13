@@ -7,7 +7,7 @@
     </select>
     <insert id="register">
         INSERT INTO `user` (`account`, `name`, `phone`, `email`, `permission`, `avatar`,`password`)
-        VALUES (#{account}, #{name}, #{phone}, #{email}, '1', '/source/img/icons/custom_center.png',#{password});
+        VALUES (#{account}, #{name}, #{phone}, #{email}, '0', '/source/img/icons/custom_center.png',#{password});
     </insert>
     <select id="logIn" resultType="com.tencent.wxcloudrun.entity.User">
         select * from user
