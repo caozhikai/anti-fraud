@@ -12,4 +12,10 @@ public interface LawyerMapper extends Mapper<Lawyer> {
     List<Lawyer> updateLawyer(@RequestParam("lastId") Integer lastId);
 
     List<Lawyer> getLawyerById(@RequestParam("id") Integer id);
+
+    void changeLawyer(@RequestParam("id") Integer id, @RequestParam("name") String name, @RequestParam("sex") String sex,@RequestParam("phone") String phone, @RequestParam("email") String email, @RequestParam("introduce") String introduce, @RequestParam("avatar") String avatar);
+
+    void deleteLawyer(@RequestParam("id") Integer id);
+
+    void addLawyer(@RequestParam("name") String name, @RequestParam("sex") String sex,@RequestParam("phone") String phone, @RequestParam("email") String email, @RequestParam("introduce") String introduce, @RequestParam("avatar") String avatar);
 }

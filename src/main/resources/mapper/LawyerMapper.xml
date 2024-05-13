@@ -16,4 +16,17 @@
         select * from lawyer
         where id = #{id}
     </select>
+    <update id="changeLawyer">
+        update `lawyer`
+        set `name`=#{name}, `sex`=#{sex}, `phone`=#{phone}, `email`=#{email}, `introduce`=#{introduce}, `avatar`=#{avatar}
+        where `id` = #{id}
+    </update>
+    <delete id="deleteLawyer">
+        delete from lawyer
+        where id = #{id}
+    </delete>
+    <insert id="addLawyer">
+        insert into `lawyer` (`name`, `sex`, `phone`, `email`, `introduce`, `avatar`)
+        values (#{name}, #{sex}, #{phone}, #{email}, #{introduce}, #{avatar})
+    </insert>
 </mapper>

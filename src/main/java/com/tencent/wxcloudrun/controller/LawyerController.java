@@ -29,4 +29,19 @@ public class LawyerController {
     public List<Lawyer> getLawyerById(Integer id){
         return lawyerService.getLawyerById(id);
     }
+
+    @GetMapping(value = "/changeLawyer")
+    public void changeLawyer(Integer id,String name,String sex,String phone,String email,String introduce,String avatar){
+        lawyerService.changeLawyer(id,name,sex,phone,email,introduce,avatar);
+    }
+
+    @GetMapping(value = "/deleteLawyer")
+    public void deleteLawyer(Integer id){
+        lawyerService.deleteLawyer(id);
+    }
+
+    @GetMapping(value = "addLawyer")
+    public void addLawyer(String name,String sex,String phone,String email,String introduce,String avatar){
+        lawyerService.addLawyer(name,sex,phone,email,introduce,avatar);
+    }
 }

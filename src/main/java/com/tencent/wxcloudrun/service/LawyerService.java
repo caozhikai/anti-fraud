@@ -22,4 +22,16 @@ public class LawyerService {
     public List<Lawyer> getLawyerById(Integer id) {
         return lawyerMapper.getLawyerById(id);
     }
+
+    public void changeLawyer(Integer id, String name, String sex, String phone, String email, String introduce, String avatar) {
+        lawyerMapper.changeLawyer(id,name,sex,phone,email,introduce,avatar);
+    }
+
+    public void deleteLawyer(Integer id) {
+        lawyerMapper.deleteLawyer(id);
+    }
+
+    public void addLawyer(String name, String sex, String phone, String email, String introduce, String avatar) {
+        lawyerMapper.addLawyer(name,sex,phone,email,introduce,avatar);
+    }
 }
